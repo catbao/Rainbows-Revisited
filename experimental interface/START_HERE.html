@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style>
+		p, body{
+			font-family: sans-serif;
+			font-size: 18px;
+		}
+	</style>
+
+</head>
+<body>
+	<p id="error" style="color: red">
+	<p><b>Experiment 1:</b> <a href="lineup/crowd/exp1.html">actual</a>, or <a href="lineup/crowd/exp1_w_feedback.html">practice trials (with feedback)</a>.
+	<br><br>
+	<b>Experiment 2:</b> <a href="lineup/crowd/exp2.html">actual</a>, or <a href="lineup/crowd/exp2_w_feedback.html">practice</a>
+
+	<script>
+		var str = window.location.href.substring(0, 4);
+		if (str == 'file')
+		{
+			/*
+			document.getElementById('error').innerHTML = "It looks like you arrived here by opening the page directly from your disk. Unfortunately, this method will not allow you to launch the experiment. Instead, you'd want to start a local web server in this directory and navigate to this file again through your <i>localhost</i> address";
+			*/
+		}
+	</script>
+</body>
+</html>
+
