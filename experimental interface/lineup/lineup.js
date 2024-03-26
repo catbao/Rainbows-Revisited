@@ -60,12 +60,13 @@ function Lineup(w, h, n, realModel, decoyModel, nullOption)
         this.canvases.push( canvas );
 
         // sampler
-        var sampler = new ScalarSample(w, h, canvas, i==n-1 ? this.decoyModel : this.realModel);
-        // var sampler = (200*200 array from csv)
-        this.samplers.push(sampler);
+        // var sampler = new ScalarSample(w, h, canvas, i==n-1 ? this.decoyModel : this.realModel);
+        // // var sampler = (200*200 array from csv)
+        // this.samplers.push(sampler);
 
         var image = new Image();
-        image.src = 'C:/Users/A/Desktop/Rainbows Revisited/test_data/1.png'; 
+        image.src = 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/ABC-2021-LOGO.svg/1200px-ABC-2021-LOGO.svg.png'; 
+        // image.src = 'https://github.com/catbao/Rainbows-Revisited/blob/1c45e03800dbbbb54579fa994083184589a7274e/test_data/1.png'
         image.onload = function() { 
             var context = canvas.getContext('2d');
             context.drawImage(image, 0, 0, canvas.width, canvas.height);
@@ -97,7 +98,7 @@ Lineup.prototype.sample = function(samplingRate, noDecoy)
     {
         this.samplers[i].sampleModel(samplingRate, noDecoy ? this.realModel : undefined);
         // console.log("abc:", this.samplers[i].visualizer.field.view);
-        console.log("abc:", this.samplers[i]);
+        // console.log("abc:", this.samplers[i]);
 
         // let array = Array.from(this.samplers[i].visualizer.field.view);
         // console.log(Array.isArray(array)); 
