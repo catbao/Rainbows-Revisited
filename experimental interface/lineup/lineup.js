@@ -65,8 +65,8 @@ function Lineup(w, h, n, realModel, decoyModel, nullOption)
         // this.samplers.push(sampler);
 
         var image = new Image();
-        image.src = 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/ABC-2021-LOGO.svg/1200px-ABC-2021-LOGO.svg.png'; 
-        // image.src = 'https://github.com/catbao/Rainbows-Revisited/blob/1c45e03800dbbbb54579fa994083184589a7274e/test_data/1.png'
+        // image.src = 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/ABC-2021-LOGO.svg/1200px-ABC-2021-LOGO.svg.png'; 
+        image.src = 'https://github.com/catbao/Rainbows-Revisited/blob/1c45e03800dbbbb54579fa994083184589a7274e/test_data/1.png'
         image.onload = function() { 
             var context = canvas.getContext('2d');
             context.drawImage(image, 0, 0, canvas.width, canvas.height);
