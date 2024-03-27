@@ -1,0 +1,140 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Helvetica, "PingFang SC", "Microsoft Yahei", sans-serif;
+}
+
+main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60px;
+}
+
+/* 选择器容器 */
+.slider {
+    --ticksThickness: 2px;
+    --ticksHeight: 33%;
+    --ticksColor: silver;
+
+    width: 50%;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(to right, var(--ticksColor) var(--ticksThickness), transparent 1px) repeat-x;
+    background-size: calc((100% - 90px)/((var(--max) - var(--min)) / var(--step)) - .1%) var(--ticksHeight);
+    background-position-x: 90px;
+    background-position-y: bottom;
+    position: relative;
+}
+
+input[type="range"] {
+    /* 禁用浏览器默认外观 */
+    -webkit-appearance: none;
+    appearance: none;
+    background: linear-gradient(to right, #fcfdbf, #feca8d, #fd9668, #f1605d, #cd4071, #9e2f7f, #721f81, #440f76, #180f3d, #000004);
+    border-radius: 4px;
+    width: 100%;
+    height: 12px;
+    outline: none;
+}
+
+/* 滑动选择器上的滑动按钮 */
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #07c6e8;
+    transition: 0.3s;
+}
+
+/* 当滑动选择器上的滑动按钮滑动时 */
+input[type="range"]:active::-webkit-slider-thumb {
+    background-color: #0990FF;
+    box-shadow: 0 0 0 6px rgba(155, 73, 146, 0.4);
+}
+
+/* 当滑动选择器上的滑动按钮滑动时 */
+input[type="range"]:active::-webkit-slider-thumb {
+    background-color: #0990FF;
+    box-shadow: 0 0 0 6px rgba(155, 73, 146, 0.4);
+}
+
+/* 显示数值的容器 */
+.selected {
+    margin-right: 16px;
+    background-color: #ffffff;
+    width: 80px;
+    line-height: 40px;
+    text-align: center;
+    color: black;
+    border-radius: 4px;
+    position: relative;
+}
+
+/* 三角 */
+.selected::after {
+    content: "";
+    display: block;
+    border-top: 8px solid transparent;
+    border-left: 8px solid #ffffff;
+    border-bottom: 8px solid transparent;
+    position: absolute;
+    top: calc(50% - 8px);
+    right: -6px;
+}
+
+.toggle {
+  cursor: pointer;
+  display: inline-block;
+  font-size: 30px;
+  margin-right: 20px;
+}
+
+.toggle-switch {
+  display: inline-block;
+  background: #ccc;
+  border-radius: 16px;
+  width: 58px;
+  height: 32px;
+  position: relative;
+  vertical-align: middle;
+  transition: background 0.25s;
+}
+.toggle-switch:before, .toggle-switch:after {
+  content: "";
+}
+.toggle-switch:before {
+  display: block;
+  background: linear-gradient(to bottom, #fff 0%, #eee 100%);
+  border-radius: 50%;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25);
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  transition: left 0.25s;
+}
+.toggle:hover .toggle-switch:before {
+  background: linear-gradient(to bottom, #fff 0%, #fff 100%);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.5);
+}
+.toggle-checkbox:checked + .toggle-switch {
+  background: #56c080;
+}
+.toggle-checkbox:checked + .toggle-switch:before {
+  left: 30px;
+}
+
+.toggle-checkbox {
+  position: absolute;
+  visibility: hidden;
+}
+
+.toggle-label {
+  margin-left: 5px;
+  position: relative;
+  top: 2px;
+}

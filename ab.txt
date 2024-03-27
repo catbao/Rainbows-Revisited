@@ -1,0 +1,5 @@
+{"experimentalData":[
+    {"blockNum":1,"trialNum":1,"stimulusNum":1,"colormap":"blues","distance":0.11710277039346229,"requestedDistance":0.11,"correct":0,"selection":2,"generationTime":472,"converged":true,"iterations":8,"responseTime":884,"center":0.03,"correlation":0.07,"expdistance":0.11},
+    {"blockNum":1,"trialNum":2,"stimulusNum":2,"colormap":"blues","distance":0.1164585945160915,"requestedDistance":0.11,"correct":0,"selection":4,"generationTime":129,"converged":true,"iterations":5,"responseTime":654,"center":0.03,"correlation":0.07,"expdistance":0.11},
+],
+"engagementCorrect":0,"engagementTotal":0,"engagementAccuracy":0,"stimulusCorrect":0,"stimulusTotal":4,"stimulusAccuracy":0}
