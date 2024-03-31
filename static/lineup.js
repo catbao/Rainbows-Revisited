@@ -65,44 +65,44 @@ Lineup.prototype.sample = function(samplingRate, noDecoy)
     if (noDecoy) {
         console.log('sampling no decoy (fidelity: ' + samplingRate + ')');
     }
-    let index = 24;
+    let index = 1;
    
     for (let i=0; i<this.samplers.length; i++)
     {
-        console.log("trailOrder:", trialOrder)
-        let image = new Image();
-        if(i === 0)
-            image.src = `./static/img/Viridis/Viridis_${trialOrder}_output1.png`;
-        if(i === 1)
-            image.src = `./static/img/Viridis/Viridis_${trialOrder}_output2.png`;
-        if(i === 2)
-            image.src = `./static/img/Viridis/Viridis_${trialOrder}_output3.png`;
-        if(i === 3)
-            image.src = `./static/img/Viridis/Viridis_${trialOrder}_target_output.png`;
+        // console.log("trailOrder:", trialOrder)
+        // let image = new Image();
+        // if(i === 0)
+        //     image.src = `./static/img/Viridis/Viridis_${trialOrder}_output1.png`;
+        // if(i === 1)
+        //     image.src = `./static/img/Viridis/Viridis_${trialOrder}_output2.png`;
+        // if(i === 2)
+        //     image.src = `./static/img/Viridis/Viridis_${trialOrder}_output3.png`;
+        // if(i === 3)
+        //     image.src = `./static/img/Viridis/Viridis_${trialOrder}_target_output.png`;
 
-        (function(index, img) {
-            img.onload = function() {
-                let context = canvas.getContext('2d');
-                context.drawImage(img, 0, 0, canvas.width, canvas.height);
-            };
-        })(i, image);
-        this.canvases.push( canvas );
+        // (function(index, img) {
+        //     img.onload = function() {
+        //         let context = canvas.getContext('2d');
+        //         context.drawImage(img, 0, 0, canvas.width, canvas.height);
+        //     };
+        // })(i, image);
+        // this.canvases.push( canvas );
 
         this.samplers[i].sampleModel(samplingRate, noDecoy ? this.realModel : undefined);
         // console.log("abc:", this.samplers[i].visualizer.field.view);
         // console.log("abc:", this.samplers[i]);
 
-        // let array = Array.from(this.samplers[i].visualizer.field.view);
-        // console.log(Array.isArray(array)); 
-        // let twoDimView = [];
-        // for (let i = 0; i < 200; i++) {
-        //     twoDimView[i] = array.slice(i * 200, (i + 1) * 200);
-        // }
-        // let arrayAsText = twoDimView.map(row => row.join(',')).join('\n');
-        // if(i===3)
-        //     download(`${index}_target_output.csv`, 'Row,Column\n' + arrayAsText);
-        // else
-        //     download(`${index}_output${i+1}.csv`, 'Row,Column\n' + arrayAsText);
+        let array = Array.from(this.samplers[i].visualizer.field.view);
+        console.log(Array.isArray(array)); 
+        let twoDimView = [];
+        for (let i = 0; i < 200; i++) {
+            twoDimView[i] = array.slice(i * 200, (i + 1) * 200);
+        }
+        let arrayAsText = twoDimView.map(row => row.join(',')).join('\n');
+        if(i===3)
+            download(`${index}_target_output.csv`, 'Row,Column\n' + arrayAsText);
+        else
+            download(`${index}_output${i+1}.csv`, 'Row,Column\n' + arrayAsText);
 
         // this.samplers[i].vis();
     }
@@ -129,7 +129,11 @@ Lineup.prototype.layoutCanvases = function(table)
     }
     else if(block === 3){
         color_data = 'Ours';
-        document.getElementById('colorbar_pic').src = "/static/img/ColorMap/Ours_colormap.png";
+        if(trial === 10) document.getElementById('colorbar_pic').src = "/static/img/ColorMap/Ours_colormap_2.png";
+        else if(trial === 8) document.getElementById('colorbar_pic').src = "/static/img/ColorMap/Ours_colormap_5.png";
+        else if(trial === 11 || trial === 14) document.getElementById('colorbar_pic').src = "/static/img/ColorMap/Ours_colormap_4.png";
+        else document.getElementById('colorbar_pic').src = "/static/img/ColorMap/Ours_colormap_3.png";
+        // document.getElementById('colorbar_pic').src = "/static/img/ColorMap/Ours_colormap.png";
     }
     else if(block === 4){
         color_data = 'OMC';

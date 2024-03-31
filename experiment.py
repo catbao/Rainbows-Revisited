@@ -74,7 +74,7 @@ def write_result_to_disk1():
     with open('results/Comparing_value_results.csv', 'a', newline='') as outfile:  # 使用 newline='' 避免在 Windows 上的空行问题  
         csv_writer = csv.writer(outfile)   
         if not is_existed:  
-            fieldnames = ["blockNum", "trialNum", "stimulusNum", "distance", "correct", "selection"]  
+            fieldnames = ["blockNum", "trialNum", "stimulusNum", "distance", "correct", "selection", "expdistance"]  
             csv_writer.writerow(fieldnames)  
 
         for trial in experimental_data:  
@@ -86,6 +86,7 @@ def write_result_to_disk1():
                 trial["distance"],  
                 trial["correct"],  
                 trial["selection"],  
+                trial["expdistance"]
             ])
     return url_for('form')
 

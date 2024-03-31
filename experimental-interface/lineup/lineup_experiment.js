@@ -88,7 +88,7 @@ LineupExperiment.prototype.randomLineup = function(fidelity, domSelection, noDec
 
     // new lineup
     this.trialHasDecoy = noDecoy ? false : true;
-    // this.lineup.sample(fidelity, noDecoy);
+    this.lineup.sample(fidelity, noDecoy);
     this.lineup.layoutCanvases(domSelection);
     this.domSelection = domSelection;
     console.log("dom selection:", domSelection);
